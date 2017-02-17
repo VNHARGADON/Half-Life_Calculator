@@ -16,7 +16,7 @@ namespace ahhhhh
             var opt3 = FindViewById<Button>(Resource.Id.opt3);
             
                 opt1.Click += delegate
-                {
+                { 
 
                     var b = FindViewById<TextView>(Resource.Id.entry1).Text;
                     var f = FindViewById<TextView>(Resource.Id.entry2).Text;
