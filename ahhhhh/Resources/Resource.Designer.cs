@@ -87,14 +87,14 @@ namespace ahhhhh
 			// aapt resource value: 0x7f050003
 			public const int opt3 = 2131034115;
 			
-			// aapt resource value: 0x7f050009
-			public const int output = 2131034121;
-			
 			// aapt resource value: 0x7f050000
 			public const int relativeLayout1 = 2131034112;
 			
 			// aapt resource value: 0x7f050008
 			public const int result = 2131034120;
+			
+			// aapt resource value: 0x7f050009
+			public const int textView2 = 2131034121;
 			
 			static Id()
 			{
