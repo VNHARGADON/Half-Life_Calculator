@@ -6,79 +6,93 @@ using System;
 
 namespace ahhhhh
 {
-    [Activity(Label = "Portfolio", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Half-Life Calculator", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Main);
+
             FindViewById<Button>(Resource.Id.opt1).Click += delegate
             {
                 HalfLife();
             };
+
             FindViewById<Button>(Resource.Id.opt2).Click += delegate
             {
                 FinalAmount();
             };
+
             FindViewById<Button>(Resource.Id.opt3).Click += delegate
             {
                 ElapsedTime();
             };
         }
 
-        private void ElapsedTime()
-        {
-
-            FindViewById<TextView>(Resource.Id.entry3).Text = "Half-Life: ";
-            var b = FindViewById<TextView>(Resource.Id.entry1).Text;
-            var f = FindViewById<TextView>(Resource.Id.entry2).Text;
-            var h = FindViewById<TextView>(Resource.Id.entry3).Text;
-            double fV = Convert.ToDouble(f);
-            double hV = Convert.ToDouble(h);
-            double bV = Convert.ToDouble(b);
-            var e = (Java.Lang.Math.Log(bV / fV) / 2.302585092994046) / (Java.Lang.Math.Log(2) / 2.302585092994046);
-            var calculate = FindViewById<Button>(Resource.Id.btnCalc);
-            calculate.Click += delegate
-            {
-                var display = FindViewById<TextView>(Resource.Id.textView2);
-                display.Text = "Elapsed Time: " + e;
-            };
-        }
-
-        private void FinalAmount()
-        {
-            FindViewById<TextView>(Resource.Id.entry2).Text = "Half-Life: ";
-            var b = FindViewById<TextView>(Resource.Id.entry1).Text;
-            var h = FindViewById<TextView>(Resource.Id.entry2).Text;
-            var t = FindViewById<TextView>(Resource.Id.entry3).Text;
-            double bV = Convert.ToDouble(b);
-            double hV = Convert.ToDouble(h);
-            double tV = Convert.ToDouble(t);
-            var f = bV / Java.Lang.Math.Pow(2, tV / hV);
-            var calculate = FindViewById<Button>(Resource.Id.btnCalc);
-            calculate.Click += delegate
-            {
-                var display = FindViewById<TextView>(Resource.Id.textView2);
-                display.Text = "Final Amount: " + f;
-            };
-        }
-
         public void HalfLife()
         {
-            var b = FindViewById<TextView>(Resource.Id.entry1).Text;
-            var f = FindViewById<TextView>(Resource.Id.entry2).Text;
-            var t = FindViewById<TextView>(Resource.Id.entry3).Text;
-            double bV = Convert.ToDouble(b);
-            double fV = Convert.ToDouble(f);
-            double tV = Convert.ToDouble(t);
-            var h = (Java.Lang.Math.Log(2) / 2.302585092994046) * tV / (Java.Lang.Math.Log(bV / fV) / 2.302585092994046);
+            var b = double.Parse(FindViewById<EditText>(Resource.Id.entry1).Text);
+            var f = double.Parse(FindViewById<EditText>(Resource.Id.entry2).Text);
+            var t = double.Parse(FindViewById<EditText>(Resource.Id.entry3).Text);
+            var h = ((Java.Lang.Math.Log(2) / 2.302585092994046) * t / (Java.Lang.Math.Log(b / f) / 2.302585092994046));
+            if (f > b)
+            {
+                var message = (new AlertDialog.Builder(this)).Create();
+                message.SetTitle("Input Error");
+                message.SetMessage("The final amount cannot be larger than the initial amount");
+                message.SetButton("Okay", HandlePositiveButtonClick);
+                message.Show();
+            }
             var calculate = FindViewById<Button>(Resource.Id.btnCalc);
             calculate.Click += delegate
             {
+                var dis = FindViewById<TextView>(Resource.Id.result);
                 var display = FindViewById<TextView>(Resource.Id.textView2);
-                display.Text = "Half-Life: " + h;
+                dis.Text = "Half-Life: ";
+                display.Text = Convert.ToString(h);
             };
+        }
+		
+        private void FinalAmount()
+        {
+            var b = double.Parse(FindViewById<EditText>(Resource.Id.entry1).Text);
+            var t = double.Parse(FindViewById<EditText>(Resource.Id.entry3).Text);
+            var h = double.Parse(FindViewById<EditText>(Resource.Id.entry4).Text);
+            var f = (b / Java.Lang.Math.Pow(2, t / h));
+            var calculate = FindViewById<Button>(Resource.Id.btnCalc);
+            calculate.Click += delegate
+            {
+                var dis = FindViewById<TextView>(Resource.Id.result);
+                var display = FindViewById<TextView>(Resource.Id.textView2);
+                dis.Text = "Final Amount: ";
+                display.Text =  Convert.ToString(f);
+            };
+        }
+		private void ElapsedTime()
+        {
+            var b = double.Parse(FindViewById<EditText>(Resource.Id.entry1).Text);
+            var f = double.Parse(FindViewById<EditText>(Resource.Id.entry2).Text);
+            var h = double.Parse(FindViewById<EditText>(Resource.Id.entry4).Text);
+            var e = ((Java.Lang.Math.Log(b / f) / 2.302585092994046) / (Java.Lang.Math.Log(2) / 2.302585092994046));
+            if (f > b)
+            {
+                var message = (new AlertDialog.Builder(this)).Create();
+                message.SetTitle("Input Error");
+                message.SetMessage("The final amount cannot be larger than the initial amount");
+                message.SetButton("Okay", HandlePositiveButtonClick);
+                message.Show();
+            }
+            var calculate = FindViewById<Button>(Resource.Id.btnCalc);
+            calculate.Click += delegate
+            {
+                var dis = FindViewById<TextView>(Resource.Id.result);
+                var display = FindViewById<TextView>(Resource.Id.textView2);
+                dis.Text = "Elapsed Time: ";
+                display.Text = Convert.ToString(e);
+            };
+        }
+        private void HandlePositiveButtonClick(object sender, EventArgs e) {
         }
     }
 }

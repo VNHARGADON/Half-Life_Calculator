@@ -3,6 +3,12 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <TextView
+        android:text="Enter the data you have to find the missing value, then select option.(Values cannot be negative)"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4" />
     <RelativeLayout
         android:minWidth="25px"
         android:minHeight="25px"
@@ -11,60 +17,68 @@
         android:id="@+id/relativeLayout1"
         android:layout_marginTop="25px">
         <Button
-            android:text="Calculate Half-Life"
+            android:text="Half-Life"
             android:id="@+id/opt1"
-            android:layout_height="135px"
+            android:layout_height="150px"
             android:layout_width="200px"
             android:padding="5px"
             android:layout_marginRight="50px"
             android:layout_marginLeft="30px" />
         <Button
-            android:text="Calculate Final Amount"
+            android:text=" Final Amount"
             android:id="@+id/opt2"
             android:layout_width="200px"
-            android:layout_height="135px"
+            android:layout_height="150px"
             android:layout_toRightOf="@id/opt1"
             android:padding="5px"
             android:layout_marginRight="50px" />
         <Button
-            android:text="Calculate Elapsed Time"
+            android:text="Elapsed Time"
             android:id="@+id/opt3"
             android:layout_width="200px"
-            android:layout_height="135px"
+            android:layout_height="150px"
             android:layout_toRightOf="@id/opt2"
             android:padding="5px" />
-        <TextView
-            android:text="Beginning Amount:"
-            android:textAppearance="?android:attr/textAppearanceLarge"
+        <EditText
+            android:inputType="numberDecimal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/entry1"
+            android:layout_marginLeft="25px"
+            android:text="Beginning Amount:"
+            android:layout_below="@id/opt1" />
+        <EditText
+            android:inputType="numberDecimal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/opt1"
-            android:layout_marginLeft="10px" />
-        <TextView
-            android:text="Final Amount:"
-            android:textAppearance="?android:attr/textAppearanceLarge"
             android:id="@+id/entry2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_marginLeft="25px"
             android:layout_below="@id/entry1"
-            android:layout_marginLeft="10px" />
-        <TextView
-            android:text="Elapsed Time:"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/entry3"
+            android:text="Final Amount: " />
+        <EditText
+            android:inputType="numberDecimal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/entry3"
+            android:layout_marginLeft="25px"
             android:layout_below="@id/entry2"
-            android:layout_marginBottom="50px"
-            android:layout_marginLeft="10px" />
+            android:text="Elapsed Time: " />
+        <EditText
+            android:inputType="numberDecimal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/entry4"
+            android:layout_marginLeft="25px"
+            android:layout_below="@id/entry3"
+            android:text="Half-Life: " />
         <Button
             android:text="Calculate"
             android:id="@+id/btnCalc"
-            android:layout_width="250px"
+            android:layout_width="450px"
             android:layout_height="wrap_content"
-            android:layout_below="@id/entry3"
-            android:layout_marginLeft="230px" />
+            android:layout_below="@id/entry4"
+            android:layout_marginLeft="150px"
+            android:layout_marginTop="50px" />
         <TextView
             android:text="Result:"
             android:textAppearance="?android:attr/textAppearanceMedium"
@@ -75,7 +89,7 @@
             android:layout_below="@id/btnCalc"
             android:layout_marginLeft="230px" />
         <TextView
-            android:text="Medium Text"
+            android:text="000.000"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
@@ -84,12 +98,4 @@
             android:layout_below="@id/btnCalc"
             android:layout_marginLeft="10px" />
     </RelativeLayout>
-    <ImageView
-        android:src="@drawable/formula"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView1"
-        android:layout_marginTop="15px"
-        android:layout_marginRight="2px"
-        android:layout_marginLeft="2px" />
 </LinearLayout>

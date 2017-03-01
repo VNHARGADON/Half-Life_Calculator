@@ -59,12 +59,10 @@
     <None Include="GettingStarted.Xamarin" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
-    <AndroidResource Include="Resources\layout\landscape-layout\Main.axml">
+    <AndroidResource Include="Resources\layout\maybeLater\layout-port\port.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\port-layout\Main.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
+    <AndroidResource Include="Resources\layout\maybeLater\layout-land\land.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml">
@@ -82,8 +80,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\formula.jpg" />
-    <AndroidResource Include="Resources\layout\landscape-layout\landSource.txt" />
-    <AndroidResource Include="Resources\layout\port-layout\portSource.txt" />
     <Content Include="Solution\README.txt" />
   </ItemGroup>
   <ItemGroup />
