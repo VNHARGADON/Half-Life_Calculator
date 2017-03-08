@@ -13,7 +13,6 @@ namespace ahhhhh
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Main);
-
             FindViewById<Button>(Resource.Id.opt1).Click += delegate
             {
                 HalfLife();
@@ -41,7 +40,7 @@ namespace ahhhhh
                 var message = (new AlertDialog.Builder(this)).Create();
                 message.SetTitle("Input Error");
                 message.SetMessage("The final amount cannot be larger than the initial amount");
-                message.SetButton("Okay", HandlePositiveButtonClick);
+                message.SetButton("Okay", HandleButtonClick);
                 message.Show();
             }
             var calculate = FindViewById<Button>(Resource.Id.btnCalc);
@@ -74,13 +73,13 @@ namespace ahhhhh
             var b = double.Parse(FindViewById<EditText>(Resource.Id.entry1).Text);
             var f = double.Parse(FindViewById<EditText>(Resource.Id.entry2).Text);
             var h = double.Parse(FindViewById<EditText>(Resource.Id.entry4).Text);
-            var e = ((Java.Lang.Math.Log(b / f) / 2.302585092994046) / (Java.Lang.Math.Log(2) / 2.302585092994046));
+            var t = ((Java.Lang.Math.Log(b / f)) / (Java.Lang.Math.Log(2)))*h;
             if (f > b)
             {
                 var message = (new AlertDialog.Builder(this)).Create();
                 message.SetTitle("Input Error");
                 message.SetMessage("The final amount cannot be larger than the initial amount");
-                message.SetButton("Okay", HandlePositiveButtonClick);
+                message.SetButton("Okay", HandleButtonClick);
                 message.Show();
             }
             var calculate = FindViewById<Button>(Resource.Id.btnCalc);
@@ -89,10 +88,10 @@ namespace ahhhhh
                 var dis = FindViewById<TextView>(Resource.Id.result);
                 var display = FindViewById<TextView>(Resource.Id.textView2);
                 dis.Text = "Elapsed Time: ";
-                display.Text = Convert.ToString(e);
+                display.Text = Convert.ToString(t);
             };
         }
-        private void HandlePositiveButtonClick(object sender, EventArgs e) {
+        private void HandleButtonClick(object sender, EventArgs e) {
         }
     }
 }

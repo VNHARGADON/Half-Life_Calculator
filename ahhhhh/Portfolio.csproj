@@ -59,10 +59,8 @@
     <None Include="GettingStarted.Xamarin" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
-    <AndroidResource Include="Resources\layout\maybeLater\layout-port\port.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\maybeLater\layout-land\land.axml" />
+    <AndroidResource Include="Resources\layout-land\Main.axml" />
+    <AndroidResource Include="Resources\layout-port\Main.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml">
@@ -79,7 +77,9 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\formula.jpg" />
+    <AndroidResource Include="Resources\drawable\img1.png" />
+    <AndroidResource Include="Resources\drawable\formulas.png" />
+    <AndroidResource Include="Resources\drawable\ourHero.jpg" />
     <Content Include="Solution\README.txt" />
   </ItemGroup>
   <ItemGroup />

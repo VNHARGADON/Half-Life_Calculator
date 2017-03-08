@@ -6,7 +6,7 @@
     <TextView
         android:text="Enter the data you have to find the missing value, then select option.(Values cannot be negative)"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView4" />
     <RelativeLayout
@@ -19,24 +19,24 @@
         <Button
             android:text="Half-Life"
             android:id="@+id/opt1"
-            android:layout_height="150px"
-            android:layout_width="200px"
+            android:layout_height="250px"
+            android:layout_width="300px"
             android:padding="5px"
             android:layout_marginRight="50px"
             android:layout_marginLeft="30px" />
         <Button
             android:text=" Final Amount"
             android:id="@+id/opt2"
-            android:layout_width="200px"
-            android:layout_height="150px"
+            android:layout_width="300px"
+            android:layout_height="250px"
             android:layout_toRightOf="@id/opt1"
             android:padding="5px"
             android:layout_marginRight="50px" />
         <Button
             android:text="Elapsed Time"
             android:id="@+id/opt3"
-            android:layout_width="200px"
-            android:layout_height="150px"
+            android:layout_width="300px"
+            android:layout_height="250px"
             android:layout_toRightOf="@id/opt2"
             android:padding="5px" />
         <EditText
@@ -76,8 +76,9 @@
             android:id="@+id/btnCalc"
             android:layout_width="450px"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15px"
-            android:layout_toRightOf="@id/opt3" />
+            android:layout_below="@id/entry4"
+            android:layout_marginLeft="150px"
+            android:layout_marginTop="50px" />
         <TextView
             android:text="Result:"
             android:textAppearance="?android:attr/textAppearanceMedium"
@@ -85,10 +86,8 @@
             android:textAlignment="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25px"
-            android:layout_marginRight="15px"
             android:layout_below="@id/btnCalc"
-            android:layout_toRightOf="@id/opt3" />
+            android:layout_marginLeft="230px" />
         <TextView
             android:text="000.000"
             android:textAppearance="?android:attr/textAppearanceMedium"
@@ -96,6 +95,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/result"
-            android:layout_below="@id/btnCalc" />
+            android:layout_below="@id/btnCalc"
+            android:layout_marginLeft="10px" />
     </RelativeLayout>
 </LinearLayout>
